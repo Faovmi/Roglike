@@ -15,7 +15,7 @@ public class Playerhealth : MonoBehaviour
     private void Start()
     {
         _maxValue = value;
-        DrawHealhBar();
+        DrawHealthBar();
     }
 
     public void DealDamage(float damage)
@@ -26,7 +26,14 @@ public class Playerhealth : MonoBehaviour
             PlayerIsDead();
         }
         
-        DrawHealhBar();
+        DrawHealthBar();
+    }
+
+    public void AddHealth(float amount)
+    {
+        value += amount;
+        value = Mathf.Clamp(value, 0, _maxValue);
+        DrawHealthBar();
     }
 
     private void PlayerIsDead()
@@ -38,7 +45,7 @@ public class Playerhealth : MonoBehaviour
         GetComponent<CameraRotation>().enabled = false;
     }
 
-    private void DrawHealhBar()
+    private void DrawHealthBar()
     {
         valueRectTransform.anchorMax = new Vector2(value / _maxValue, 1);
     }

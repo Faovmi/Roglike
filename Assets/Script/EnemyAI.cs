@@ -72,8 +72,7 @@ public class EnemyAI : MonoBehaviour
             {
                 PickNewPatrolPoint();
             }
-        }
-        
+        }    
     }
 
     private void PickNewPatrolPoint()
@@ -89,7 +88,6 @@ public class EnemyAI : MonoBehaviour
             {
                 PickNewPatrolPoint();
             }
-            
         }
     }
 }
